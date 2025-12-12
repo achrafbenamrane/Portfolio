@@ -11,6 +11,7 @@ import {
   Wrench,
   MessageSquare,
   TrendingUp,
+  Download,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -28,6 +29,7 @@ function ContactCard({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.4 }}
       whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 1 }}
       className={`relative h-full w-full overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,45,85,0.4)] rounded-3xl ${className}`}
     >
       {/* Gradient background */}
@@ -51,7 +53,7 @@ function ContactCard({
         {/* Social Icons */}
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6 flex-wrap">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/achrafbenamrane"
             target="_blank"
             rel="noopener noreferrer"
             className="p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-110"
@@ -61,7 +63,7 @@ function ContactCard({
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/mohamed-achraf-benamrane-582127350"
             target="_blank"
             rel="noopener noreferrer"
             className="p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg sm:rounded-xl md:rounded-2xl bg-[#0A66C2] hover:bg-[#004182] border border-white/20 hover:border-white/40 transition-all hover:shadow-[0_0_30px_rgba(10,102,194,0.5)] hover:scale-110"
@@ -71,7 +73,7 @@ function ContactCard({
             </svg>
           </a>
           <a
-            href="tel:+1234567890"
+            href="tel:+213558780131"
             className="p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg sm:rounded-xl md:rounded-2xl bg-[#25D366] hover:bg-[#128C7E] border border-white/20 hover:border-white/40 transition-all hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] hover:scale-110"
           >
             <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10" viewBox="0 0 24 24" fill="white">
@@ -79,7 +81,7 @@ function ContactCard({
             </svg>
           </a>
           <a
-            href="https://t.me/yourusername"
+            href="https://t.me/adventurero_dz"
             target="_blank"
             rel="noopener noreferrer"
             className="p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg sm:rounded-xl md:rounded-2xl bg-[#0088cc] hover:bg-[#0077b5] border border-white/20 hover:border-white/40 transition-all hover:shadow-[0_0_30px_rgba(0,136,204,0.5)] hover:scale-110"
@@ -132,7 +134,7 @@ function IOSTile({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay, duration: 0.4 }}
         whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileTap={{ scale: 1 }}
         className={`relative h-full w-full overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg transition-all duration-300 ${colors.glow} rounded-3xl`}
       >
         {/* Gradient background */}
@@ -144,7 +146,7 @@ function IOSTile({
             <div className="h-full w-full flex flex-col p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6">
               {/* Profile Image - Top Left */}
               <div className="flex items-start gap-2 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6 mb-auto">
-                <div className="relative w-16 h-16 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full overflow-hidden border-2 sm:border-2 md:border-3 lg:border-4 border-white/30 shadow-xl flex-shrink-0">
+                <div className="relative w-20 h-20 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-32 xl:h-32 rounded-full overflow-hidden border-3 sm:border-2 md:border-3 lg:border-4 border-white/40 shadow-2xl flex-shrink-0">
                   <Image
                     src="/assets/profil.JPG"
                     alt="Profile"
@@ -153,24 +155,26 @@ function IOSTile({
                     priority
                   />
                 </div>
-                <div className="flex flex-col items-start text-left pt-1 sm:pt-0.5 md:pt-1 lg:pt-2">
+                <div className="flex flex-col items-start text-left pt-1 sm:pt-0.5 md:pt-1 lg:pt-2 flex-1">
                   <h3 className="text-sm sm:text-xs md:text-sm lg:text-base xl:text-xl font-bold text-white leading-tight mb-1 sm:mb-1 md:mb-1.5 lg:mb-2">
                     Benamrane Mohamed Achraf
                   </h3>
                   <div className="mt-0.5 sm:mt-0.5 md:mt-1 lg:mt-2 space-y-0.5 sm:space-y-0.5 md:space-y-1">
-                    <p className="text-[10px] sm:text-[8px] md:text-[9px] lg:text-xs xl:text-sm text-gray-300 font-medium">
-                      Full Stack Developer
-                    </p>
-                    <p className="text-[10px] sm:text-[8px] md:text-[9px] lg:text-xs xl:text-sm text-gray-400">
-                      UI/UX & Graphic Designer
-                    </p>
-                    <p className="text-[10px] sm:text-[8px] md:text-[9px] lg:text-xs xl:text-sm text-gray-400">
-                      Network & Security Engineer
-                    </p>
-                    <p className="text-[10px] sm:text-[8px] md:text-[9px] lg:text-xs xl:text-sm text-gray-400">
-                      AI Automation Expert
+                    <p className="text-[10px] sm:text-[8px] md:text-[9px] lg:text-xs xl:text-sm text-gray-300 leading-relaxed">
+                      I'm a Full-Stack Developer, UI/UX Designer, Graphic Designer, and Network & Information Security Engineer.
+                      I enjoy combining development, design, and security to build modern, efficient, and impactful digital solutions while continuously exploring new technologies.
                     </p>
                   </div>
+                  
+                  {/* Download CV Button */}
+                  <a
+                    href="/cv.pdf"
+                    download
+                    className="mt-2 sm:mt-2 md:mt-3 lg:mt-4 inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-3 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-full text-white text-[10px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.5)] hover:scale-105 active:scale-100"
+                  >
+                    <Download className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" strokeWidth={2.5} />
+                    Download CV
+                  </a>
                 </div>
               </div>
             </div>
@@ -222,11 +226,11 @@ export default function Home() {
         </motion.header>
 
         {/* Dashboard Grid */}
-        <main className="flex-1 px-2 sm:px-3 md:px-4 lg:px-6 pb-2 sm:pb-3 md:pb-4 lg:pb-6 overflow-hidden">
-          <div className="w-full h-full max-w-7xl mx-auto flex items-center justify-center">
+        <main className="flex-1 px-3 sm:px-3 md:px-4 lg:px-6 pb-3 sm:pb-3 md:pb-4 lg:pb-6 overflow-hidden">
+          <div className="w-full h-full max-w-7xl mx-auto flex items-center justify-center px-2 sm:px-0">
             {/* iOS Control Center Grid - Fixed, No Scrolling */}
             <div 
-              className="grid w-full h-full gap-1 sm:gap-2.5 md:gap-3 lg:gap-4"
+              className="grid w-full h-full gap-2 sm:gap-2.5 md:gap-3 lg:gap-4"
               style={{
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gridTemplateRows: 'repeat(4, 1fr)',

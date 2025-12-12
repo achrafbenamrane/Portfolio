@@ -6,8 +6,8 @@ import PageTransition from "@/components/PageTransition";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Game Dashboard Portfolio",
-  description: "A futuristic game-style portfolio dashboard",
+  title: "Benamrane Mohamed Achraf Portfolio",
+  description: "Full-Stack Developer, UI/UX Designer, Graphic Designer, and Network & Information Security Engineer",
 };
 
 export default function RootLayout({
