@@ -1,57 +1,112 @@
 "use client";
 
-import PageLayout from "@/components/PageLayout";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function SkillsPage() {
   const skillCategories = [
     {
-      title: "Frontend",
-      icon: "🎨",
+      title: "Web Development",
       skills: [
-        { name: "React/Next.js", level: 95 },
-        { name: "TypeScript", level: 90 },
+        { name: "HTML & CSS", level: 95 },
+        { name: "JavaScript", level: 90 },
+        { name: "React & Next.js", level: 90 },
+        { name: "Express.js", level: 85 },
+        { name: "Prisma ORM", level: 85 },
         { name: "Tailwind CSS", level: 95 },
-        { name: "Framer Motion", level: 85 },
       ],
     },
     {
-      title: "Backend",
-      icon: "⚙️",
+      title: "UI/UX & Graphic Design",
       skills: [
-        { name: "Node.js", level: 90 },
+        { name: "Figma", level: 95 },
+        { name: "Adobe Illustrator", level: 90 },
+        { name: "Photoshop", level: 85 },
+        { name: "Inkscape", level: 80 },
+      ],
+    },
+    {
+      title: "Programming & Security",
+      skills: [
         { name: "Python", level: 85 },
-        { name: "GraphQL", level: 80 },
-        { name: "PostgreSQL", level: 85 },
+        { name: "Network Security", level: 80 },
+        { name: "Information Security", level: 80 },
       ],
     },
     {
-      title: "DevOps",
-      icon: "🚀",
+      title: "Tools & Technologies",
       skills: [
-        { name: "Docker", level: 85 },
-        { name: "AWS", level: 80 },
-        { name: "CI/CD", level: 85 },
-        { name: "Kubernetes", level: 75 },
+        { name: "Git & GitHub", level: 90 },
+        { name: "Linux", level: 85 },
       ],
     },
     {
-      title: "Design",
-      icon: "✨",
+      title: "Soft Skills",
       skills: [
-        { name: "Figma", level: 90 },
-        { name: "UI/UX", level: 85 },
-        { name: "Adobe XD", level: 80 },
-        { name: "Prototyping", level: 85 },
+        { name: "Leadership", level: 90 },
+        { name: "Team Management", level: 90 },
+        { name: "Project Organization", level: 95 },
+        { name: "Problem-Solving", level: 90 },
+      ],
+    },
+    {
+      title: "AI & Automation",
+      skills: [
+        { name: "AI Automation", level: 85 },
+        { name: "AI Agents", level: 80 },
       ],
     },
   ];
 
   return (
-    <PageLayout
-      title="Skills & Expertise"
-      description="Technologies and tools I work with"
-    >
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+      {/* Subtle grid pattern */}
+      <div 
+        className="fixed inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #007AFF 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div className="relative z-10 min-h-screen">
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="px-4 sm:px-6 md:px-8 py-4 sm:py-6"
+        >
+          <div className="max-w-6xl mx-auto">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-sm sm:text-base text-white"
+            >
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              Back to Home
+            </Link>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <main className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 pb-12">
+          <div className="max-w-6xl mx-auto">
+            {/* Page Title */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-8 sm:mb-12"
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
+                Skills & Expertise
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-gray-400">
+                Technologies and tools I work with
+              </p>
+            </motion.div>
+
       <div className="space-y-8">
         {skillCategories.map((category, categoryIndex) => (
           <motion.div
@@ -61,8 +116,7 @@ export default function SkillsPage() {
             transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
             className="p-6 md:p-8 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-4xl">{category.icon}</span>
+            <div className="mb-6">
               <h3 className="text-2xl font-bold text-white">{category.title}</h3>
             </div>
 
@@ -109,25 +163,21 @@ export default function SkillsPage() {
         transition={{ duration: 0.6, delay: 0.8 }}
         className="mt-12 p-8 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl"
       >
-        <h3 className="text-2xl font-bold text-white mb-6">Other Tools & Technologies</h3>
+        <h3 className="text-2xl font-bold text-white mb-6">Additional Technologies</h3>
         <div className="flex flex-wrap gap-3">
           {[
-            "Git",
-            "VS Code",
-            "Postman",
-            "MongoDB",
-            "Redis",
-            "Jest",
-            "WebSockets",
+            "TypeScript",
+            "Node.js",
             "REST APIs",
-            "GraphQL",
-            "Firebase",
-            "Vercel",
-            "Netlify",
-            "Linux",
-            "Nginx",
-            "Webpack",
-            "Vite",
+            "Responsive Design",
+            "Version Control",
+            "Agile Methodology",
+            "UI/UX Principles",
+            "Design Systems",
+            "Prototyping",
+            "Wireframing",
+            "Brand Identity",
+            "System Architecture",
           ].map((tool, index) => (
             <motion.span
               key={index}
@@ -142,6 +192,21 @@ export default function SkillsPage() {
           ))}
         </div>
       </motion.div>
-    </PageLayout>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="py-6 text-center"
+        >
+          <p className="text-xs sm:text-sm text-gray-500">
+            © 2025 Benamrane Mohamed Achraf Portfolio
+          </p>
+        </motion.footer>
+      </div>
+    </div>
   );
 }
