@@ -165,15 +165,27 @@ function IOSTile({
                     </p>
                   </div>
                   
-                  {/* Download CV Button */}
-                  <a
-                    href="/cv.pdf"
-                    download
-                    className="mt-2 sm:mt-2 md:mt-3 lg:mt-4 inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-3 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-full text-white text-[10px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.5)] hover:scale-105 active:scale-100"
-                  >
-                    <Download className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" strokeWidth={2.5} />
-                    Download CV
-                  </a>
+                  {/* Buttons */}
+                  <div className="flex gap-2 mt-2 sm:mt-2 md:mt-3 lg:mt-4">
+                    {/* Download CV Button */}
+                    <a
+                      href="/cv.pdf"
+                      download
+                      className="inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-3 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-full text-white text-[10px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.5)] hover:scale-105 active:scale-100"
+                    >
+                      <Download className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" strokeWidth={2.5} />
+                      Download CV
+                    </a>
+
+                    {/* Contact Button */}
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-3 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full text-white text-[10px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-100"
+                    >
+                      <MessageSquare className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" strokeWidth={2.5} />
+                      Contact
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -222,16 +234,12 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 flex-shrink-0"
+          className="px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 flex-shrink-0"
         >
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
-            <h1 className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              &lt;/&gt; My Portfolio
+          <div className="flex items-center justify-center max-w-7xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              &lt;/ My Portfolio &gt;
             </h1>
-            <div className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 rounded-full backdrop-blur-xl bg-white/5 border border-white/10 flex items-center gap-1.5 sm:gap-2">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs text-gray-300">Active</span>
-            </div>
           </div>
         </motion.header>
 

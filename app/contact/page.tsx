@@ -31,8 +31,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: "Email",
-      value: "benamranemhd@gmail.com",
-      link: "mailto:benamranemhd@gmail.com",
+      value: "Mohamed-achraf.benamrane@univ-annaba.dz",
+      link: "mailto:Mohamed-achraf.benamrane@univ-annaba.dz",
     },
     {
       icon: Phone,
