@@ -37,7 +37,7 @@ function ContactCard({
       <div className="relative h-full w-full flex flex-col justify-center p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
         {/* Motivation Line */}
         <div>
-          <h2 className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-center leading-tight">
+          <h2 className="text-base sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-center leading-tight">
             <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
               Let's Work
             </span>
@@ -176,11 +176,11 @@ function IOSTile({
             </div>
           ) : (
             <>
-              <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 text-white mb-1 sm:mb-1.5 md:mb-2" strokeWidth={1.5} />
-              <h3 className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold text-white leading-tight">
+              <Icon className="w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 text-white mb-1 sm:mb-1.5 md:mb-2" strokeWidth={1.5} />
+              <h3 className="text-lg font-bold sm:text-[9px] sm:font-semibold md:text-[10px] lg:text-xs xl:text-sm text-white leading-tight">
                 {title}
               </h3>
-              {subtitle && <p className="text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] text-gray-400 mt-0.5">{subtitle}</p>}
+              {subtitle && <p className="text-xs sm:text-[8px] md:text-[9px] lg:text-[10px] text-gray-400 mt-0.5">{subtitle}</p>}
             </>
           )}
         </div>
@@ -241,7 +241,7 @@ export default function Home() {
                 href="/profile"
                 color="blue"
                 delay={0}
-                className="col-span-4 row-span-1 sm:col-span-2 sm:row-span-3"
+                className="col-span-4 row-span-1 sm:col-span-2 sm:row-span-3 order-1 sm:order-none"
                 showImage={true}
               />
 
@@ -252,7 +252,7 @@ export default function Home() {
                 href="/skills"
                 color="cyan"
                 delay={0.1}
-                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1"
+                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1 order-2 sm:order-none"
               />
 
               {/* Services - Larger on mobile */}
@@ -262,7 +262,7 @@ export default function Home() {
                 href="/services"
                 color="orange"
                 delay={0.2}
-                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1"
+                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1 order-3 sm:order-none"
               />
 
               {/* Projects - Full width on mobile */}
@@ -273,11 +273,11 @@ export default function Home() {
                 href="/projects"
                 color="purple"
                 delay={0.3}
-                className="col-span-4 row-span-1 sm:col-span-2 sm:row-span-1"
+                className="col-span-4 row-span-1 sm:col-span-2 sm:row-span-1 order-4 sm:order-none"
               />
 
-              {/* Connect - Full width last row on mobile, 2x2 middle position on desktop */}
-              <div className="col-span-4 row-span-1 sm:col-span-2 sm:row-span-2">
+              {/* Connect - Full width LAST on mobile (LARGER to match Profile), 2x2 middle position on desktop */}
+              <div className="col-span-4 row-span-2 sm:col-span-2 sm:row-span-2 order-7 sm:order-none">
                 <ContactCard
                   delay={0.4}
                   className=""
@@ -291,7 +291,7 @@ export default function Home() {
                 href="/experience"
                 color="purple"
                 delay={0.5}
-                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1"
+                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1 order-5 sm:order-none"
               />
 
               {/* Certifications - Larger on mobile, bottom right on desktop */}
@@ -301,7 +301,7 @@ export default function Home() {
                 href="/certifications"
                 color="green"
                 delay={0.6}
-                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1"
+                className="col-span-2 row-span-1 sm:col-span-1 sm:row-span-1 order-6 sm:order-none"
               />
 
             </div>
