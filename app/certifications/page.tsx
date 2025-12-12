@@ -1,60 +1,103 @@
 "use client";
 
-import PageLayout from "@/components/PageLayout";
 import { motion } from "framer-motion";
-import { Award, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Award, ExternalLink } from "lucide-react";
 
 export default function CertificationsPage() {
   const certifications = [
     {
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
+      title: "Network & Information Security Studies",
+      issuer: "Badji Mokhtar University Annaba",
+      date: "2025",
+      icon: "🔒",
+      link: "#",
+    },
+    {
+      title: "Computer System Bachelor's Degree",
+      issuer: "Badji Mokhtar University Annaba",
       date: "2024",
-      icon: "☁️",
+      icon: "�",
       link: "#",
     },
     {
-      title: "Google Professional Cloud Architect",
-      issuer: "Google Cloud",
-      date: "2023",
-      icon: "🔧",
+      title: "Open-Source Community Leader",
+      issuer: "OSC Annaba - Computer Science Department",
+      date: "2023-2024",
+      icon: "👥",
       link: "#",
     },
     {
-      title: "Meta Front-End Developer",
-      issuer: "Meta (Facebook)",
-      date: "2023",
-      icon: "⚛️",
+      title: "Startup Brevet - Smart Dental Platform",
+      issuer: "University Badji Mokhtar Annaba",
+      date: "2023-2024",
+      icon: "🏆",
       link: "#",
     },
     {
-      title: "Microsoft Certified: Azure Developer",
-      issuer: "Microsoft",
-      date: "2022",
-      icon: "💻",
-      link: "#",
-    },
-    {
-      title: "Certified Kubernetes Administrator",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2022",
+      title: "Lab Maintenance Certification",
+      issuer: "Computer Science Department Annaba",
+      date: "2023-2024",
       icon: "⚙️",
       link: "#",
     },
     {
-      title: "Certified Ethical Hacker",
-      issuer: "EC-Council",
-      date: "2021",
-      icon: "🔒",
+      title: "Event Organizer - Study in Japan 2024",
+      issuer: "Open-Source Community Annaba",
+      date: "2024",
+      icon: "🌏",
       link: "#",
     },
   ];
 
   return (
-    <PageLayout
-      title="Certifications"
-      description="Professional credentials and achievements"
-    >
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+      {/* Subtle grid pattern */}
+      <div 
+        className="fixed inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #007AFF 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div className="relative z-10 min-h-screen">
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="px-4 sm:px-6 md:px-8 py-4 sm:py-6"
+        >
+          <div className="max-w-6xl mx-auto">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-sm sm:text-base text-white"
+            >
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              Back to Home
+            </Link>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <main className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 pb-12">
+          <div className="max-w-6xl mx-auto">
+            {/* Page Title */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-8 sm:mb-12"
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
+                Certifications
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-gray-400">
+                Professional credentials and achievements
+              </p>
+            </motion.div>
+
       <div className="grid md:grid-cols-2 gap-6">
         {certifications.map((cert, index) => (
           <motion.div
@@ -62,38 +105,37 @@ export default function CertificationsPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.02 }}
-            className="relative group p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl hover:border-neon-cyan/50 transition-all duration-300"
+            className="relative group p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl hover:border-blue-500/50 transition-all duration-300"
           >
             {/* Icon */}
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 transition-transform">
                 {cert.icon}
               </div>
 
               <div className="flex-1 min-w-0">
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-neon-cyan transition-colors">
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
                   {cert.title}
                 </h3>
                 <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
-                <p className="text-neon-blue text-sm font-medium">{cert.date}</p>
+                <p className="text-blue-400 text-sm font-medium">{cert.date}</p>
               </div>
 
               {/* Badge Icon */}
-              <Award className="w-6 h-6 text-neon-cyan opacity-50 group-hover:opacity-100 transition-opacity" />
+              <Award className="w-6 h-6 text-cyan-400 opacity-50 group-hover:opacity-100 transition-opacity" />
             </div>
 
             {/* View Link */}
             <a
               href={cert.link}
-              className="mt-4 inline-flex items-center gap-2 text-sm text-neon-cyan hover:text-neon-blue transition-colors"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-blue-400 transition-colors"
             >
               <span>View Certificate</span>
               <ExternalLink className="w-4 h-4" />
             </a>
 
             {/* Hover Effect */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-neon-cyan/0 to-neon-blue/0 group-hover:from-neon-cyan/5 group-hover:to-neon-blue/5 transition-all duration-300 pointer-events-none" />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-300 pointer-events-none" />
           </motion.div>
         ))}
       </div>
@@ -106,21 +148,36 @@ export default function CertificationsPage() {
         className="mt-12 grid grid-cols-3 gap-4"
       >
         {[
-          { label: "Total Certifications", value: "15+" },
-          { label: "Industry Leaders", value: "8" },
-          { label: "Years Learning", value: "7+" },
+          { label: "Total Achievements", value: "6+" },
+          { label: "Organizations", value: "3" },
+          { label: "Years Active", value: "2+" },
         ].map((stat, index) => (
           <div
             key={index}
             className="text-center p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-xl"
           >
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-neon-cyan to-neon-blue bg-clip-text text-transparent mb-2">
+            <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
               {stat.value}
             </div>
             <div className="text-sm text-gray-400">{stat.label}</div>
           </div>
         ))}
       </motion.div>
-    </PageLayout>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="py-6 text-center"
+        >
+          <p className="text-xs sm:text-sm text-gray-500">
+            © 2025 Benamrane Mohamed Achraf Portfolio
+          </p>
+        </motion.footer>
+      </div>
+    </div>
   );
 }
