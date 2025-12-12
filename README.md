@@ -1,4 +1,4 @@
-# Game-Style Portfolio Dashboard
+Portfolio Dashboard
 
 A futuristic, interactive portfolio dashboard built with Next.js, featuring a game-inspired UI with neon aesthetics and smooth animations.
 
