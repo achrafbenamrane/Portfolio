@@ -127,16 +127,15 @@ function IOSTile({
 
   const colors = colorMap[color] || colorMap.blue;
 
-  return (
-    <Link href={href} className={`block h-full w-full ${className}`}>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay, duration: 0.4 }}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 1 }}
-        className={`relative h-full w-full overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg transition-all duration-300 ${colors.glow} rounded-3xl`}
-      >
+  const content = (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.4 }}
+      whileHover={{ scale: showImage ? 1 : 1.02 }}
+      whileTap={{ scale: 1 }}
+      className={`relative h-full w-full overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg transition-all duration-300 ${colors.glow} rounded-3xl`}
+    >
         {/* Gradient background */}
         <div className={`absolute inset-0 bg-gradient-to-br ${colors.from} ${colors.to} opacity-60`} />
         
@@ -189,6 +188,17 @@ function IOSTile({
           )}
         </div>
       </motion.div>
+  );
+
+  // If it's the profile card (showImage=true), don't wrap in Link
+  if (showImage) {
+    return <div className={`block h-full w-full ${className}`}>{content}</div>;
+  }
+
+  // For other cards, wrap in Link
+  return (
+    <Link href={href} className={`block h-full w-full ${className}`}>
+      {content}
     </Link>
   );
 }
@@ -226,8 +236,8 @@ export default function Home() {
         </motion.header>
 
         {/* Dashboard Grid */}
-        <main className="flex-1 px-3 sm:px-3 md:px-4 lg:px-6 pb-3 sm:pb-3 md:pb-4 lg:pb-6 overflow-hidden">
-          <div className="w-full h-full max-w-7xl mx-auto flex items-center justify-center px-2 sm:px-0">
+        <main className="flex-1 px-3 sm:px-3 md:px-4 lg:px-6 pb-6 sm:pb-3 md:pb-4 lg:pb-6 overflow-hidden">
+          <div className="w-full h-full max-w-7xl mx-auto flex items-center justify-center px-2 sm:px-0 pb-4 sm:pb-0">
             {/* iOS Control Center Grid - Fixed, No Scrolling */}
             <div 
               className="grid w-full h-full gap-2 sm:gap-2.5 md:gap-3 lg:gap-4"
@@ -317,7 +327,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="py-3 text-center flex-shrink-0"
+          className="py-3 pb-6 sm:pb-3 text-center flex-shrink-0"
         >
           <p className="text-[10px] text-gray-500">
             © 2025 iOS Portfolio Dashboard
