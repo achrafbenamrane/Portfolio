@@ -1,143 +1,170 @@
 "use client";
 
-import PageLayout from "@/components/PageLayout";
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, TrendingUp } from "lucide-react";
+import { Briefcase, Calendar, TrendingUp, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function ExperiencePage() {
   const experiences = [
     {
-      title: "Senior Full-Stack Developer",
-      company: "Tech Innovators Inc.",
-      period: "2021 - Present",
-      description: "Leading development of enterprise web applications using React, Node.js, and AWS.",
+      title: "Freelance Designer and Developer",
+      company: "Freelance",
+      period: "2025 – Present",
+      description: "Delivered web development and design solutions for clients, creating responsive and user-friendly websites. Applied UI/UX principles and graphic design expertise to enhance digital products project management, and teamwork skills.",
       achievements: [
-        "Improved app performance by 40%",
-        "Led team of 5 developers",
-        "Implemented CI/CD pipeline",
+        "Created responsive and user-friendly websites",
+        "Applied UI/UX principles and graphic design expertise",
+        "Enhanced digital products with modern design",
       ],
+      color: "from-blue-500/20 to-blue-600/5",
     },
     {
-      title: "Web Developer",
-      company: "Digital Solutions Ltd.",
-      period: "2019 - 2021",
-      description: "Developed responsive web applications and e-commerce platforms.",
+      title: "Leader | Graphic Design & UI/UX Design Kernel",
+      company: "Open-Source Community Annaba",
+      period: "2023 – 2024",
+      description: "Led the design kernel and mentored students in graphic design and UI/UX skills. Conducted volunteer training sessions to help them improve practical design abilities. Strengthened leadership, communication, teamwork.",
       achievements: [
-        "Built 20+ client websites",
-        "Reduced load time by 50%",
-        "Mentored junior developers",
+        "Mentored students in graphic and UI/UX design",
+        "Conducted volunteer training sessions",
+        "Strengthened leadership and communication skills",
       ],
+      color: "from-purple-500/20 to-purple-600/5",
     },
     {
-      title: "Junior Developer",
-      company: "StartUp Studio",
-      period: "2018 - 2019",
-      description: "Collaborated on various web projects and learned modern development practices.",
+      title: "Co-Founder | Smart Dental Platform Startup",
+      company: "University Badji Mokhtar Annaba",
+      period: "2023 – 2024",
+      description: "Collaborated with the Medicine and Technology faculties to build a smart dental platform. Earned a startup brevet for innovative project development.",
       achievements: [
-        "Contributed to 15+ projects",
-        "Learned React and Node.js",
-        "Earned Developer of the Month",
+        "Built smart dental platform with cross-faculty collaboration",
+        "Earned startup brevet for innovation",
+        "Bridged technology and healthcare sectors",
       ],
+      color: "from-cyan-500/20 to-cyan-600/5",
+    },
+    {
+      title: "Co-Founder & Member | Open-Source Community Club",
+      company: "Computer Science Department Annaba",
+      period: "2023 – 2024",
+      description: "Founded and actively contributed to the department's Open-Source Community Club. Maintained computer labs and provided volunteer support to the department, earning official certification for this work. Organized multiple events, one of them an international event: 'Study in Japan event annaba 2024'.",
+      achievements: [
+        "Founded Open-Source Community Club",
+        "Maintained computer labs and earned official certification",
+        "Organized international event: Study in Japan 2024",
+      ],
+      color: "from-green-500/20 to-green-600/5",
     },
   ];
 
   const stats = [
-    { label: "Years Experience", value: "07", icon: Calendar },
-    { label: "Projects Completed", value: "210+", icon: Briefcase },
-    { label: "Clients Worldwide", value: "125+", icon: TrendingUp },
-    { label: "Happy Clients", value: "98%", icon: TrendingUp },
+    { label: "Years Experience", value: "2+", icon: Calendar },
+    { label: "Projects Completed", value: "15+", icon: Briefcase },
+    { label: "Students Mentored", value: "50+", icon: TrendingUp },
+    { label: "Events Organized", value: "10+", icon: TrendingUp },
   ];
 
   return (
-    <PageLayout
-      title="Experience & Stats"
-      description="My professional journey and achievements"
-    >
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-        {stats.map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            className="p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl text-center group hover:border-neon-cyan/50 transition-colors"
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+      {/* Subtle grid pattern */}
+      <div 
+        className="fixed inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #007AFF 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div className="relative z-10 min-h-screen p-4 sm:p-6 md:p-8 lg:p-12">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-6xl mx-auto mb-8 sm:mb-12"
+        >
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 mb-6 sm:mb-8 rounded-full backdrop-blur-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all text-sm sm:text-base"
           >
-            <stat.icon className="w-8 h-8 text-neon-cyan mx-auto mb-3 group-hover:scale-110 transition-transform" />
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-neon-blue to-neon-cyan bg-clip-text text-transparent mb-2">
-              {stat.value}
-            </div>
-            <div className="text-xs md:text-sm text-gray-400">{stat.label}</div>
-          </motion.div>
-        ))}
-      </div>
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            Back to Home
+          </Link>
+          
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent mb-3 sm:mb-4">
+            Experience & Stats
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-400">My professional journey and achievements</p>
+        </motion.div>
 
-      {/* Timeline */}
-      <div className="space-y-6">
-        <h2 className="text-3xl font-bold text-white mb-8">Work Experience</h2>
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-            className="relative pl-8 md:pl-12 pb-8 border-l-2 border-neon-cyan/30 last:border-l-0 last:pb-0"
-          >
-            {/* Timeline Dot */}
-            <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-neon-cyan shadow-neon" />
-
-            {/* Content Card */}
-            <motion.div
-              whileHover={{ x: 10 }}
-              className="p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl hover:border-neon-purple/50 transition-all group"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-neon-cyan transition-colors">
-                    {exp.title}
-                  </h3>
-                  <p className="text-neon-purple font-medium">{exp.company}</p>
+        <div className="max-w-6xl mx-auto">
+          {/* Stats Grid - iOS Style */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 text-center group hover:shadow-[0_0_30px_rgba(0,122,255,0.3)] transition-all"
+              >
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1 sm:mb-2">
+                  {stat.value}
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400 mt-2 md:mt-0">
-                  <Calendar className="w-4 h-4" />
-                  <span>{exp.period}</span>
+                <div className="text-[10px] sm:text-xs md:text-sm text-gray-400">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Experience Cards - iOS Style */}
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-8">Work Experience</h2>
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                className="relative p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 hover:shadow-[0_0_30px_rgba(0,122,255,0.2)] transition-all group overflow-hidden"
+              >
+                {/* Gradient background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-60`} />
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 sm:mb-4 gap-2">
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-1 sm:mb-2">
+                        {exp.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-purple-400 font-medium">{exp.company}</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span>{exp.period}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-3 sm:mb-4 leading-relaxed">{exp.description}</p>
+
+                  <div className="space-y-2">
+                    <p className="text-xs sm:text-sm font-semibold text-cyan-400">Key Achievements:</p>
+                    <ul className="space-y-1 sm:space-y-2">
+                      {exp.achievements.map((achievement, achIndex) => (
+                        <li key={achIndex} className="flex items-start gap-2 text-xs sm:text-sm text-gray-400">
+                          <span className="text-cyan-400 mt-0.5 sm:mt-1 text-sm sm:text-base">✓</span>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-
-              <p className="text-gray-300 mb-4">{exp.description}</p>
-
-              <div className="space-y-2">
-                <p className="text-sm font-semibold text-neon-cyan">Key Achievements:</p>
-                <ul className="space-y-1">
-                  {exp.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} className="flex items-start gap-2 text-sm text-gray-400">
-                      <span className="text-neon-cyan mt-1">✓</span>
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          </motion.div>
-        ))}
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-
-      {/* Skills Progress */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="mt-12 p-8 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl"
-      >
-        <h3 className="text-2xl font-bold text-white mb-6">Growth Over Time</h3>
-        <p className="text-gray-400">
-          Throughout my career, I've continuously evolved my skills and expertise, staying
-          current with the latest technologies and best practices. From starting as a junior
-          developer to leading teams and architecting complex solutions, each role has
-          contributed to my growth as a professional.
-        </p>
-      </motion.div>
-    </PageLayout>
+    </div>
   );
 }
