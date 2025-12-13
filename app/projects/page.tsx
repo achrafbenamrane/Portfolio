@@ -131,6 +131,18 @@ export default function ProjectsPage() {
       link: "#",
       github: "#",
     },
+    {
+      title: "Butcher Pricing Menu",
+      description: "Professional pricing menu design for a local butcher shop in Ain Bidha, Oum Bouaghi, Algeria. Clean layout showcasing meat prices with clear typography and traditional butchery aesthetic",
+      images: [
+        "/projects/graphic-design/butcher/1.webp",
+        "/projects/graphic-design/butcher/2.webp"
+      ],
+      tags: ["Menu Design", "Pricing", "Typography", "Adobe Illustrator"],
+      category: "Graphic Design",
+      link: "#",
+      github: "#",
+    },
 
   ];
 
@@ -239,26 +251,29 @@ export default function ProjectsPage() {
 // Project Card Component with Carousel Support
 function ProjectCard({ project, index }: { project: any; index: number }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const hasMultipleImages = project.images && project.images.length > 0;
   const displayImages = hasMultipleImages ? project.images : [project.image];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -10 }}
-      className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
-    >
-      {/* Project Image/Icon with Carousel */}
-      <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl overflow-hidden relative">
-        {hasMultipleImages ? (
-          <>
-            <img 
-              src={displayImages[currentImageIndex]} 
-              alt={`${project.title} - Image ${currentImageIndex + 1}`}
-              className="w-full h-full object-cover"
-            />
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        whileHover={{ y: -10 }}
+        className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
+      >
+        {/* Project Image/Icon with Carousel */}
+        <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl overflow-hidden relative">
+          {hasMultipleImages ? (
+            <>
+              <img 
+                src={displayImages[currentImageIndex]} 
+                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                className="w-full h-full object-cover cursor-pointer"
+                onClick={() => setIsLightboxOpen(true)}
+              />
             {/* Carousel Controls */}
             {displayImages.length > 1 && (
               <>
@@ -357,8 +372,61 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
               </div>
             </div>
 
-      {/* Hover Glow */}
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300 pointer-events-none" />
-    </motion.div>
+        {/* Hover Glow */}
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300 pointer-events-none" />
+      </motion.div>
+
+      {/* Fullscreen Lightbox */}
+      {isLightboxOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setIsLightboxOpen(false)}
+        >
+          <button
+            onClick={() => setIsLightboxOpen(false)}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10"
+          >
+            ✕
+          </button>
+          
+          <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={displayImages[currentImageIndex]} 
+              alt={`${project.title} - Image ${currentImageIndex + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+            
+            {/* Lightbox Navigation */}
+            {displayImages.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+                  }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white flex items-center justify-center transition-all text-2xl"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white flex items-center justify-center transition-all text-2xl"
+                >
+                  ›
+                </button>
+                
+                {/* Image Counter */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-sm text-white text-sm">
+                  {currentImageIndex + 1} / {displayImages.length}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
