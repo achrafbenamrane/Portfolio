@@ -138,24 +138,24 @@ function IOSTile({
           {showImage ? (
             <div className="h-full w-full flex flex-col justify-center p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6">
               {/* Profile Image - Centered */}
-              <div className="flex items-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6">
-                <div className="relative w-20 h-24 sm:w-16 sm:h-20 md:w-20 md:h-24 lg:w-24 lg:h-28 xl:w-32 xl:h-40 rounded-2xl overflow-hidden border-3 sm:border-2 md:border-3 lg:border-4 border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.8)] flex-shrink-0">
+              <div className="flex items-stretch gap-2 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6">
+                <div className="relative w-24 sm:w-20 md:w-24 lg:w-28 xl:w-36 rounded-2xl overflow-hidden border-3 sm:border-2 md:border-3 lg:border-4 border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.8)] flex-shrink-0">
                   <Image
                     src="/assets/profil.webp"
                     alt="Profile"
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     priority
                   />
                 </div>
-                <div className="flex flex-col items-start text-left pt-1 sm:pt-0.5 md:pt-1 lg:pt-2 flex-1">
+                <div className="flex flex-col items-start justify-between text-left flex-1">
                   <h3 className="text-sm sm:text-xs md:text-sm lg:text-base xl:text-xl font-bold text-white leading-tight mb-1 sm:mb-1 md:mb-1.5 lg:mb-2">
                     Benamrane Mohamed Achraf
                   </h3>
                   <div className="mt-0.5 sm:mt-0.5 md:mt-1 lg:mt-2 space-y-0.5 sm:space-y-0.5 md:space-y-1">
                     <p className="text-[10px] sm:text-[8px] md:text-[9px] lg:text-xs xl:text-sm text-gray-300 leading-relaxed">
                       I'm a Full-Stack Developer, UI/UX Designer, Graphic Designer, and Network & Information Security Engineer.
-                      I enjoy combining development, design, and security to build modern, efficient, and impactful digital solutions while continuously exploring new technologies.
+                      I enjoy combining development, design, and security to build modern digital solutions . 
                     </p>
                   </div>
                   
