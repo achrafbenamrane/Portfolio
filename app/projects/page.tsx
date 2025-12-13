@@ -81,6 +81,24 @@ export default function ProjectsPage() {
       link: "#",
       github: "#",
     },
+    {
+      title: "AliExpress Winning Products Finder",
+      description: "Fetch AliExpress data → find winning products → save results to Google Sheets",
+      image: "/projects/ai-automation/winnersProduct.webp",
+      tags: ["Make.com", "AliExpress", "Data Analysis", "Google Sheets"],
+      category: "AI Automation",
+      link: "#",
+      github: "#",
+    },
+    {
+      title: "Weather Change Detector & Alert System",
+      description: "Get weather → detect change → save to Google Sheets → send alert (Telegram / HTTP)",
+      image: "/projects/ai-automation/weather.webp",
+      tags: ["Make.com", "Weather API", "Telegram", "Monitoring", "Alerts"],
+      category: "AI Automation",
+      link: "#",
+      github: "#",
+    },
 
   ];
 
@@ -143,7 +161,7 @@ export default function ProjectsPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-8"
             >
-              <div className="flex flex-wrap sm:flex-nowrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
+              <div className="flex flex-nowrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
                 {categories.map((category, index) => (
                   <button
                     key={index}
