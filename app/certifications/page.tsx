@@ -104,59 +104,57 @@ export default function CertificationsPage() {
               </p>
             </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {certifications.map((cert, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative group p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl hover:border-blue-500/50 transition-all duration-300"
-          >
-            {/* Certificate Image */}
-            <div className="flex items-start gap-4">
-              <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform border border-white/10">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
+                >
+                  {/* Certificate Image - Top */}
+                  <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center overflow-hidden relative">
+                    <img 
+                      src={cert.image} 
+                      alt={cert.title}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Badge Overlay */}
+                    <div className="absolute top-3 right-3 p-2 rounded-full bg-black/60 backdrop-blur-sm">
+                      <Award className="w-5 h-5 text-cyan-400" />
+                    </div>
+                  </div>
 
-              <div className="flex-1 min-w-0">
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
-                  {cert.title}
-                </h3>
-                <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
-                <p className="text-blue-400 text-sm font-medium mb-2">{cert.date}</p>
-                
-                {/* Skills Learned */}
-                <div className="mt-2">
-                  <p className="text-xs text-gray-500 font-semibold mb-1">Skills Learned:</p>
-                  <p className="text-xs text-gray-400 leading-relaxed">{cert.skills}</p>
-                </div>
-              </div>
+                  {/* Content - Bottom */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                      {cert.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
+                    <p className="text-blue-400 text-sm font-medium mb-4">{cert.date}</p>
+                    
+                    {/* Skills Learned */}
+                    <div className="mb-4">
+                      <p className="text-xs text-gray-500 font-semibold mb-2">Skills Learned:</p>
+                      <p className="text-xs text-gray-400 leading-relaxed">{cert.skills}</p>
+                    </div>
 
-              {/* Badge Icon */}
-              <Award className="w-6 h-6 text-cyan-400 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    {/* View Button */}
+                    <a
+                      href={cert.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/30 text-white hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all text-sm font-medium"
+                    >
+                      <span>View Certificate</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-
-            {/* View Link */}
-            <a
-              href={cert.image}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-blue-400 transition-colors"
-            >
-              <span>View Certificate</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
-
-            {/* Hover Effect */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-300 pointer-events-none" />
-          </motion.div>
-        ))}
-      </div>
 
       {/* Stats */}
       <motion.div

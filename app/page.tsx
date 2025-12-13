@@ -136,12 +136,12 @@ function IOSTile({
         {/* Content */}
         <div className="relative h-full w-full flex flex-col items-center justify-center p-1.5 sm:p-2 md:p-3 lg:p-4 text-center">
           {showImage ? (
-            <div className="h-full w-full flex flex-col p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6">
-              {/* Profile Image - Top Left */}
-              <div className="flex items-start gap-2 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6 mb-auto">
-                <div className="relative w-20 h-20 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-32 xl:h-32 rounded-full overflow-hidden border-3 sm:border-2 md:border-3 lg:border-4 border-white/40 shadow-2xl flex-shrink-0">
+            <div className="h-full w-full flex flex-col justify-center p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6">
+              {/* Profile Image - Centered */}
+              <div className="flex items-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6">
+                <div className="relative w-20 h-24 sm:w-16 sm:h-20 md:w-20 md:h-24 lg:w-24 lg:h-28 xl:w-32 xl:h-40 rounded-2xl overflow-hidden border-3 sm:border-2 md:border-3 lg:border-4 border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.8)] flex-shrink-0">
                   <Image
-                    src="/assets/profil.JPG"
+                    src="/assets/profil.webp"
                     alt="Profile"
                     fill
                     className="object-cover"
