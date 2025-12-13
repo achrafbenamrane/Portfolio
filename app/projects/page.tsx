@@ -172,7 +172,7 @@ export default function ProjectsPage() {
       title: "Berchicha Store Logo",
       description: "Brand identity and logo design for Berchicha, an Algerian retailer specializing in authentic TN and Lacoste products. Modern logo design reflecting quality and authenticity with clean, professional aesthetics",
       images: [
-        "/projects/graphic-design/berchicha/1.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646528/1_wlfegs.webp",
         "/projects/graphic-design/berchicha/2.webp",
         "/projects/graphic-design/berchicha/3.webp",
         "/projects/graphic-design/berchicha/4.webp",
