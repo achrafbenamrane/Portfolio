@@ -5,58 +5,42 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function SkillsPage() {
-  const skillCategories = [
-    {
-      title: "Web Development",
-      skills: [
-        { name: "HTML & CSS", level: 95 },
-        { name: "JavaScript", level: 90 },
-        { name: "React & Next.js", level: 90 },
-        { name: "Express.js", level: 85 },
-        { name: "Prisma ORM", level: 85 },
-        { name: "Tailwind CSS", level: 95 },
-      ],
-    },
-    {
-      title: "UI/UX & Graphic Design",
-      skills: [
-        { name: "Figma", level: 95 },
-        { name: "Adobe Illustrator", level: 90 },
-        { name: "Photoshop", level: 85 },
-        { name: "Inkscape", level: 80 },
-      ],
-    },
-    {
-      title: "Programming & Security",
-      skills: [
-        { name: "Python", level: 85 },
-        { name: "Network Security", level: 80 },
-        { name: "Information Security", level: 80 },
-      ],
-    },
-    {
-      title: "Tools & Technologies",
-      skills: [
-        { name: "Git & GitHub", level: 90 },
-        { name: "Linux", level: 85 },
-      ],
-    },
-    {
-      title: "Soft Skills",
-      skills: [
-        { name: "Leadership", level: 90 },
-        { name: "Team Management", level: 90 },
-        { name: "Project Organization", level: 95 },
-        { name: "Problem-Solving", level: 90 },
-      ],
-    },
-    {
-      title: "AI & Automation",
-      skills: [
-        { name: "AI Automation", level: 85 },
-        { name: "AI Agents", level: 80 },
-      ],
-    },
+  const skills = [
+    // Web Development
+    { name: "HTML & CSS", category: "Web", color: "bg-orange-500" },
+    { name: "JavaScript", category: "Web", color: "bg-yellow-500" },
+    { name: "React", category: "Web", color: "bg-cyan-500" },
+    { name: "Next.js", category: "Web", color: "bg-black" },
+    { name: "TypeScript", category: "Web", color: "bg-blue-600" },
+    { name: "Express.js", category: "Web", color: "bg-gray-700" },
+    { name: "Node.js", category: "Web", color: "bg-green-600" },
+    { name: "Tailwind CSS", category: "Web", color: "bg-cyan-600" },
+    { name: "Prisma ORM", category: "Web", color: "bg-indigo-600" },
+    
+    // Design
+    { name: "Figma", category: "Design", color: "bg-purple-600" },
+    { name: "Adobe Illustrator", category: "Design", color: "bg-orange-600" },
+    { name: "Photoshop", category: "Design", color: "bg-blue-700" },
+    { name: "Inkscape", category: "Design", color: "bg-gray-800" },
+    { name: "UI/UX Design", category: "Design", color: "bg-pink-500" },
+    { name: "Graphic Design", category: "Design", color: "bg-rose-600" },
+    
+    // Programming & Security
+    { name: "Python", category: "Programming", color: "bg-blue-500" },
+    { name: "Network Security", category: "Security", color: "bg-red-600" },
+    { name: "Information Security", category: "Security", color: "bg-red-700" },
+    
+    // Tools
+    { name: "Git & GitHub", category: "Tools", color: "bg-gray-900" },
+    { name: "Linux", category: "Tools", color: "bg-yellow-600" },
+    
+    // AI & Automation
+    { name: "AI Automation", category: "AI", color: "bg-violet-600" },
+    { name: "AI Agents", category: "AI", color: "bg-purple-700" },
+    
+    // Soft Skills
+    { name: "Leadership", category: "Soft Skills", color: "bg-emerald-600" },
+    { name: "Team Management", category: "Soft Skills", color: "bg-teal-600" },
   ];
 
   return (
@@ -97,101 +81,74 @@ export default function SkillsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-8 sm:mb-12"
+              className="mb-8 sm:mb-10 text-center"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
                 Skills & Expertise
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-gray-400">
-                Technologies and tools I work with
+              <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto px-4">
+                A comprehensive overview of technologies and tools I work with
               </p>
             </motion.div>
 
-      <div className="space-y-8">
-        {skillCategories.map((category, categoryIndex) => (
-          <motion.div
-            key={categoryIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-            className="p-6 md:p-8 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl"
-          >
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white">{category.title}</h3>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {category.skills.map((skill, skillIndex) => (
+            {/* Skills Grid - Bento Box Style */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {skills.map((skill, index) => (
                 <motion.div
-                  key={skillIndex}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8, rotateZ: -5 }}
+                  animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: index * 0.03,
+                    type: "spring",
+                    stiffness: 200
                   }}
+                  whileHover={{ 
+                    scale: 1.08, 
+                    y: -5,
+                    rotateZ: 2,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="group relative"
                 >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-medium">{skill.name}</span>
-                    <span className="text-neon-cyan text-sm">{skill.level}%</span>
-                  </div>
-                  <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{
-                        duration: 1,
-                        delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3,
-                        ease: "easeOut",
-                      }}
-                      className="h-full bg-gradient-to-r from-neon-blue to-neon-cyan rounded-full relative"
-                    >
-                      <div className="absolute inset-0 bg-white/20 animate-pulse" />
-                    </motion.div>
+                  <div className={`${skill.color} px-4 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-default`}>
+                    <div className="relative z-10">
+                      <h3 className="text-white font-semibold text-sm whitespace-nowrap">{skill.name}</h3>
+                    </div>
+                    
+                    {/* Shine effect on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                   </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        ))}
-      </div>
 
-      {/* Additional Skills */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-12 p-8 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl"
-      >
-        <h3 className="text-2xl font-bold text-white mb-6">Additional Technologies</h3>
-        <div className="flex flex-wrap gap-3">
-          {[
-            "TypeScript",
-            "Node.js",
-            "REST APIs",
-            "Responsive Design",
-            "Version Control",
-            "Agile Methodology",
-            "UI/UX Principles",
-            "Design Systems",
-            "Prototyping",
-            "Wireframing",
-            "Brand Identity",
-            "System Architecture",
-          ].map((tool, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.9 + index * 0.05 }}
-              whileHover={{ scale: 1.1 }}
-              className="px-4 py-2 rounded-full bg-gradient-to-r from-neon-purple/20 to-neon-blue/20 border border-neon-purple/30 text-white hover:border-neon-purple transition-colors cursor-default"
+            {/* Stats Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
             >
-              {tool}
-            </motion.span>
-          ))}
-        </div>
-      </motion.div>
+              {[
+                { label: "Technologies", value: "25+" },
+                { label: "Years Experience", value: "3+" },
+                { label: "Projects", value: "50+" },
+                { label: "Certifications", value: "6" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 text-center"
+                >
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1 md:mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-400 text-xs md:text-sm font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </main>
 
