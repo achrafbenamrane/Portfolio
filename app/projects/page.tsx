@@ -103,12 +103,12 @@ export default function ProjectsPage() {
       title: "ONEFRAME Packaging Design",
       description: "Professional packaging design collection featuring custom car-themed artwork for ONEFRAME brand products",
       images: [
-        "/projects/graphic-design/oneframe/1.webp",
-        "/projects/graphic-design/oneframe/2.webp",
-        "/projects/graphic-design/oneframe/3.webp",
-        "/projects/graphic-design/oneframe/4.webp",
-        "/projects/graphic-design/oneframe/5.webp",
-        "/projects/graphic-design/oneframe/6.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668604/1_hdwbhl.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668605/6_hzpruh.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668611/3_mvdmkz.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668606/5_zsjru0.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668604/2_wdhnke.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668609/4_hrie4t.webp"
       ],
       tags: ["Packaging Design", "Branding", "Adobe Illustrator", "Product Design"],
       category: "Graphic Design",
@@ -120,11 +120,11 @@ export default function ProjectsPage() {
       title: "Rital Fast Food",
       description: "Complete restaurant branding and menu design for Rital Fast Food in Annaba Sidi Amar, featuring modern visual identity and appetizing food presentation",
       images: [
-        "/projects/graphic-design/rital-food/1.webp",
-        "/projects/graphic-design/rital-food/2.webp",
-        "/projects/graphic-design/rital-food/3.webp",
-        "/projects/graphic-design/rital-food/4.webp",
-        "/projects/graphic-design/rital-food/5.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765669018/2_boun0k.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668973/1_dinedx.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668975/3_qbfn6x.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668977/4_lsco7q.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668979/5_qel7ap.webp"
       ],
       tags: ["Branding", "Menu Design", "Restaurant", "Adobe Illustrator"],
       category: "Graphic Design",
@@ -135,8 +135,8 @@ export default function ProjectsPage() {
       title: "Butcher Pricing Menu",
       description: "Professional pricing menu design for a local butcher shop in Ain Bidha, Oum Bouaghi, Algeria. Clean layout showcasing meat prices with clear typography and traditional butchery aesthetic",
       images: [
-        "/projects/graphic-design/butcher/1.webp",
-        "/projects/graphic-design/butcher/2.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668887/1_jg0sv1.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668888/2_gwmo56.webp"
       ],
       tags: ["Menu Design", "Pricing", "Typography", "Adobe Illustrator"],
       category: "Graphic Design",
@@ -182,7 +182,7 @@ export default function ProjectsPage() {
       title: "Maison du Choco Visit Card",
       description: "Professional business card design for Maison du Choco, a premium chocolate and pastry boutique. Elegant design featuring sophisticated typography and brand colors that reflect the artisanal quality of their handcrafted treats",
       images: [
-        "/projects/graphic-design/cake/1.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765669316/1_a12pgv.webp"
       ],
       tags: ["Business Card", "Brand Identity", "Print Design", "Adobe Illustrator"],
       category: "Graphic Design",
