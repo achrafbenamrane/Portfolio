@@ -100,7 +100,7 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-500 mb-3">
                 Let's Work Together
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-gray-400">

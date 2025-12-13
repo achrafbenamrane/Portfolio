@@ -39,14 +39,8 @@ function ContactCard({
       <div className="relative h-full w-full flex flex-col justify-center p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
         {/* Motivation Line */}
         <div>
-          <h2 className="text-base sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-center leading-tight">
-            <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Let's Work
-            </span>
-            {" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Together
-            </span>
+          <h2 className="text-base sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-center leading-tight text-blue-500">
+            Let's Work Together
           </h2>
         </div>
 
@@ -237,7 +231,7 @@ export default function Home() {
           className="px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 flex-shrink-0"
         >
           <div className="flex items-center justify-center max-w-7xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white">
               &lt;/ My Portfolio &gt;
             </h1>
           </div>

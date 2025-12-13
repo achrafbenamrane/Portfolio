@@ -7,45 +7,51 @@ import { ArrowLeft, Award, ExternalLink } from "lucide-react";
 export default function CertificationsPage() {
   const certifications = [
     {
-      title: "Network & Information Security Studies",
-      issuer: "Badji Mokhtar University Annaba",
-      date: "2025",
-      icon: "🔒",
-      link: "#",
-    },
-    {
-      title: "Computer System Bachelor's Degree",
+      title: "Bachelor's Degree in Computer System",
       issuer: "Badji Mokhtar University Annaba",
       date: "2024",
-      icon: "�",
+      image: "/Bachelors-Degree-in-Computer-System.webp",
+      skills: "Computer Science, Software Engineering, Network Security, Database Management, Algorithms & Data Structures",
       link: "#",
     },
     {
       title: "Open-Source Community Leader",
       issuer: "OSC Annaba - Computer Science Department",
       date: "2023-2024",
-      icon: "👥",
+      image: "/ClubFounder.webp",
+      skills: "Leadership, Community Management, Event Planning, Open-Source Development, Team Collaboration",
+      link: "#",
+    },
+    {
+      title: "Make Basics Certification",
+      issuer: "Make.com",
+      date: "2024",
+      image: "/Make Basics.webp",
+      skills: "AI Automation, Workflow Design, API Integration, No-Code Development, Process Optimization",
+      link: "#",
+    },
+    {
+      title: "Make Foundation Certification",
+      issuer: "Make.com",
+      date: "2024",
+      image: "/Make Foundation.webp",
+      skills: "AI Agents, Advanced Automation, Scenario Building, Data Processing, System Integration",
       link: "#",
     },
     {
       title: "Startup Brevet - Smart Dental Platform",
       issuer: "University Badji Mokhtar Annaba",
       date: "2023-2024",
-      icon: "🏆",
-      link: "#",
-    },
-    {
-      title: "Lab Maintenance Certification",
-      issuer: "Computer Science Department Annaba",
-      date: "2023-2024",
-      icon: "⚙️",
+      image: "/Startup-brevet.webp",
+      skills: "Project Leadership, Full-Stack Development, Healthcare Technology, Innovation & Entrepreneurship, Team Management, Product Development",
       link: "#",
     },
     {
       title: "Event Organizer - Study in Japan 2024",
       issuer: "Open-Source Community Annaba",
       date: "2024",
-      icon: "🌏",
+      image: "/eventsOrganizer.webp",
+      skills: "Event Management, International Relations, Public Speaking, Coordination, Marketing & Promotion",
       link: "#",
     },
   ];
@@ -107,10 +113,14 @@ export default function CertificationsPage() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative group p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl hover:border-blue-500/50 transition-all duration-300"
           >
-            {/* Icon */}
+            {/* Certificate Image */}
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 transition-transform">
-                {cert.icon}
+              <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform border border-white/10">
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <div className="flex-1 min-w-0">
@@ -118,7 +128,13 @@ export default function CertificationsPage() {
                   {cert.title}
                 </h3>
                 <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
-                <p className="text-blue-400 text-sm font-medium">{cert.date}</p>
+                <p className="text-blue-400 text-sm font-medium mb-2">{cert.date}</p>
+                
+                {/* Skills Learned */}
+                <div className="mt-2">
+                  <p className="text-xs text-gray-500 font-semibold mb-1">Skills Learned:</p>
+                  <p className="text-xs text-gray-400 leading-relaxed">{cert.skills}</p>
+                </div>
               </div>
 
               {/* Badge Icon */}
@@ -127,7 +143,9 @@ export default function CertificationsPage() {
 
             {/* View Link */}
             <a
-              href={cert.link}
+              href={cert.image}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-blue-400 transition-colors"
             >
               <span>View Certificate</span>
@@ -148,8 +166,8 @@ export default function CertificationsPage() {
         className="mt-12 grid grid-cols-3 gap-4"
       >
         {[
-          { label: "Total Achievements", value: "6+" },
-          { label: "Organizations", value: "3" },
+          { label: "Total Achievements", value: "6" },
+          { label: "Organizations", value: "4" },
           { label: "Years Active", value: "2+" },
         ].map((stat, index) => (
           <div
