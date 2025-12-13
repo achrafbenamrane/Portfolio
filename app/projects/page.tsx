@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Instagram } from "lucide-react";
 import { useState } from "react";
 
 export default function ProjectsPage() {
@@ -99,6 +99,38 @@ export default function ProjectsPage() {
       link: "#",
       github: "#",
     },
+    {
+      title: "ONEFRAME Packaging Design",
+      description: "Professional packaging design collection featuring custom car-themed artwork for ONEFRAME brand products",
+      images: [
+        "/projects/graphic-design/oneframe/1.webp",
+        "/projects/graphic-design/oneframe/2.webp",
+        "/projects/graphic-design/oneframe/3.webp",
+        "/projects/graphic-design/oneframe/4.webp",
+        "/projects/graphic-design/oneframe/5.webp",
+        "/projects/graphic-design/oneframe/6.webp"
+      ],
+      tags: ["Packaging Design", "Branding", "Adobe Illustrator", "Product Design"],
+      category: "Graphic Design",
+      link: "https://www.instagram.com/oneframe.dz?igsh=eGR6Z3ljZ3FkZzFt",
+      instagram: true,
+      github: "#",
+    },
+    {
+      title: "Rital Fast Food",
+      description: "Complete restaurant branding and menu design for Rital Fast Food in Annaba Sidi Amar, featuring modern visual identity and appetizing food presentation",
+      images: [
+        "/projects/graphic-design/rital-food/1.webp",
+        "/projects/graphic-design/rital-food/2.webp",
+        "/projects/graphic-design/rital-food/3.webp",
+        "/projects/graphic-design/rital-food/4.webp",
+        "/projects/graphic-design/rital-food/5.webp"
+      ],
+      tags: ["Branding", "Menu Design", "Restaurant", "Adobe Illustrator"],
+      category: "Graphic Design",
+      link: "#",
+      github: "#",
+    },
 
   ];
 
@@ -159,7 +191,7 @@ export default function ProjectsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8"
+              className="mb-8 relative"
             >
               <div className="flex flex-nowrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
                 {categories.map((category, index) => (
@@ -176,6 +208,8 @@ export default function ProjectsPage() {
                   </button>
                 ))}
               </div>
+              {/* Gradient fade effect on mobile to indicate more buttons */}
+              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black via-black/80 to-transparent pointer-events-none md:hidden" />
             </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -241,15 +275,15 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                   ›
                 </button>
                 {/* Dots Indicator */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
                   {displayImages.map((_: any, idx: number) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`w-1.5 h-1.5 rounded-full transition-all ${
+                      className={`h-2.5 rounded-full transition-all ${
                         idx === currentImageIndex 
-                          ? 'bg-white w-4' 
-                          : 'bg-white/50 hover:bg-white/75'
+                          ? 'bg-blue-500 w-8 shadow-[0_0_10px_rgba(59,130,246,0.8)]' 
+                          : 'bg-white/40 w-2.5 hover:bg-blue-400/60'
                       }`}
                     />
                   ))}
@@ -296,8 +330,17 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 hover:bg-blue-500/20 transition-colors"
                   >
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm">View</span>
+                    {project.instagram ? (
+                      <>
+                        <Instagram className="w-4 h-4" />
+                        <span className="text-sm">Instagram</span>
+                      </>
+                    ) : (
+                      <>
+                        <ExternalLink className="w-4 h-4" />
+                        <span className="text-sm">View</span>
+                      </>
+                    )}
                   </a>
                 )}
                 {project.github !== "#" && (
