@@ -148,20 +148,13 @@ export default function ProjectsPage() {
       description: "Large-scale outdoor advertising panels for Rital Fast Food in Sidi Amar, Annaba. Eye-catching billboard designs featuring bold typography, vibrant food photography, and strategic messaging for maximum visual impact",
       images: [
         "/projects/graphic-design/big-rital/1.webp",
-        "/projects/graphic-design/big-rital/2.webp",
         "/projects/graphic-design/big-rital/3.webp",
-        "/projects/graphic-design/big-rital/4.webp",
         "/projects/graphic-design/big-rital/5.webp",
-        "/projects/graphic-design/big-rital/6.webp",
         "/projects/graphic-design/big-rital/7.webp",
-        "/projects/graphic-design/big-rital/8.webp",
         "/projects/graphic-design/big-rital/9.webp",
         "/projects/graphic-design/big-rital/10.webp",
         "/projects/graphic-design/big-rital/11.webp",
-        "/projects/graphic-design/big-rital/12.webp",
-        "/projects/graphic-design/big-rital/13.webp",
-        "/projects/graphic-design/big-rital/14.webp",
-        "/projects/graphic-design/big-rital/15.webp"
+        "/projects/graphic-design/big-rital/13.webp"
       ],
       tags: ["Billboard Design", "Advertising", "Branding", "Adobe Illustrator"],
       category: "Graphic Design",
