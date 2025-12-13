@@ -120,6 +120,8 @@ export default function CertificationsPage() {
                       src={cert.image} 
                       alt={cert.title}
                       className="w-full h-full object-cover"
+                      loading="eager"
+                      decoding="async"
                     />
                     {/* Badge Overlay */}
                     <div className="absolute top-3 right-3 p-2 rounded-full bg-black/60 backdrop-blur-sm">

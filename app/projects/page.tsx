@@ -147,14 +147,14 @@ export default function ProjectsPage() {
       title: "Rital Fast Food Big Panels",
       description: "Large-scale outdoor advertising panels for Rital Fast Food in Sidi Amar, Annaba. Eye-catching billboard designs featuring bold typography, vibrant food photography, and strategic messaging for maximum visual impact",
       images: [
-        "/projects/graphic-design/big-rital/1.webp",
-        "/projects/graphic-design/big-rital/3.webp",
-        "/projects/graphic-design/big-rital/5.webp",
-        "/projects/graphic-design/big-rital/7.webp",
-        "/projects/graphic-design/big-rital/9.webp",
-        "/projects/graphic-design/big-rital/10.webp",
-        "/projects/graphic-design/big-rital/11.webp",
-        "/projects/graphic-design/big-rital/13.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647418/1_gkle1x.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661742/10_n9p2ew.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647425/3_yzckiq.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647413/11_ledogt.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661751/5_igcbux.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661744/9_bxa46e.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647422/7_fcnnqh.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661787/13_wlawwc.webp"
       ],
       tags: ["Billboard Design", "Advertising", "Branding", "Adobe Illustrator"],
       category: "Graphic Design",
@@ -166,11 +166,11 @@ export default function ProjectsPage() {
       description: "Brand identity and logo design for Berchicha, an Algerian retailer specializing in authentic TN and Lacoste products. Modern logo design reflecting quality and authenticity with clean, professional aesthetics",
       images: [
         "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646528/1_wlfegs.webp",
-        "/projects/graphic-design/berchicha/2.webp",
-        "/projects/graphic-design/berchicha/3.webp",
-        "/projects/graphic-design/berchicha/4.webp",
-        "/projects/graphic-design/berchicha/5.webp",
-        "/projects/graphic-design/berchicha/6.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646535/2_d70ngg.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646536/3_l68alr.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765662234/4_rv0a6c.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646529/5_rxtguc.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646528/6_mcgtes.webp"
       ],
       tags: ["Logo Design", "Brand Identity", "Adobe Illustrator", "Retail"],
       category: "Graphic Design",
@@ -212,7 +212,7 @@ export default function ProjectsPage() {
         <motion.header
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="px-4 sm:px-6 md:px-8 py-4 sm:py-6"
         >
           <div className="max-w-6xl mx-auto">
@@ -306,7 +306,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
+        transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
         whileHover={{ y: -10 }}
         className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
       >
@@ -319,6 +319,8 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover cursor-pointer"
                 onClick={() => setIsLightboxOpen(true)}
+                loading="eager"
+                decoding="async"
               />
             {/* Carousel Controls */}
             {displayImages.length > 1 && (
@@ -357,6 +359,8 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             src={displayImages[0]} 
             alt={project.title}
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
           />
         ) : (
           displayImages[0]
@@ -447,6 +451,8 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
               src={displayImages[currentImageIndex]} 
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
               className="max-w-full max-h-full object-contain"
+              loading="eager"
+              decoding="async"
             />
             
             {/* Lightbox Navigation */}
