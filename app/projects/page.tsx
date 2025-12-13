@@ -12,59 +12,76 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      title: "iOS Control Center Portfolio",
-      description: "Modern portfolio website inspired by iOS Control Center with glassmorphism design",
-      image: "🎨",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      title: "ONEFRAME",
+      description: "E-commerce website for my brand",
+      image: "/projects/ONEFRAME.webp",
+      tags: ["E-commerce", "Next.js", "Stripe"],
       category: "Web Development",
-      link: "https://achrafbenamrane.vercel.app",
-      github: "https://github.com/achrafbenamrane/Portfolio",
+      link: "https://oneframe.me",
+      github: "#",
     },
+
     {
       title: "Smart Dental Platform",
       description: "Healthcare platform connecting Medicine and Technology faculties - Startup brevet earned",
-      image: "🦷",
+      images: [
+        "/projects/smiley/1.webp",
+        "/projects/smiley/2.webp",
+        "/projects/smiley/3.webp",
+        "/projects/smiley/4.webp",
+        "/projects/smiley/5.webp"
+      ],
       tags: ["Full-Stack", "Healthcare", "Innovation"],
       category: "Web Development",
-      link: "#",
+      link: "https://smiley.vercel.app",
+      github: "#",
+    },
+
+    {
+      title: "Desktop IDS",
+      description: "Advanced Intrusion Detection System",
+      images: [
+        "/projects/ids/1.webp",
+        "/projects/ids/2.webp",
+        "/projects/ids/3.webp"
+      ],
+      tags: ["Python", "Security", "Network", "Desktop App"],
+      category: "Desktop Development",
+      link: "https://desktop-ids.vercel.app/",
       github: "#",
     },
     {
-      title: "Open-Source Community Website",
-      description: "Community platform for Computer Science Department at University Badji Mokhtar",
-      image: "💻",
-      tags: ["React", "Community", "Open-Source"],
+      title: "Manliness Evolution Ebook",
+      description: "Interactive digital book exploring modern masculinity and personal growth with engaging content and smooth reading experience",
+      images: [
+        "/projects/ebook/1.webp",
+        "/projects/ebook/2.webp",
+        "/projects/ebook/3.webp"
+      ],
+      tags: ["Next.js", "TypeScript", "Interactive", "Digital Publishing"],
       category: "Web Development",
-      link: "#",
+      link: "https://manliness-smart-book.vercel.app",
       github: "#",
     },
     {
-      title: "Brand Identity & Logo Design",
-      description: "Collection of brand identities, logos, and visual identity systems for various clients",
-      image: "✨",
-      tags: ["Figma", "Adobe Illustrator", "Branding"],
-      category: "Graphic Design",
-      link: "#",
+      title: "Student Reclamation Portal",
+      description: "Student complaint management system with automated Telegram notifications - reclamations are automatically sent to class delegates via Telegram for quick resolution",
+      image: "/projects/student/1.webp",
+      tags: ["Web App", "Telegram Bot", "Automation", "Issue Tracking"],
+      category: "Web Development",
+      link: "https://student-reclamation-portal.vercel.app/",
       github: "#",
     },
     {
-      title: "UI/UX Design Projects",
-      description: "User interface and user experience design for web and mobile applications",
-      image: "�",
-      tags: ["Figma", "Photoshop", "UI/UX"],
-      category: "Graphic Design",
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "AI Automation Tools",
-      description: "Intelligent automation solutions and AI agents for workflow optimization",
-      image: "🤖",
-      tags: ["Python", "AI", "Automation"],
+      title: "E-commerce Workflow Automation",
+      description: "New Shopify order → saved to Google Sheets + notified via Telegram + SMS sent via Twilio",
+      image: "/projects/ai-automation/ecommerce.webp",
+      tags: ["Make.com", "Shopify", "Telegram", "Twilio", "Google Sheets"],
       category: "AI Automation",
       link: "#",
       github: "#",
     },
+
   ];
 
   const filteredProjects = selectedCategory === "All" 
@@ -126,12 +143,12 @@ export default function ProjectsPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-8"
             >
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap sm:flex-nowrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
                 {categories.map((category, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                       selectedCategory === category
                         ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-[0_0_20px_rgba(0,122,255,0.3)]"
                         : "backdrop-blur-xl bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
@@ -145,60 +162,7 @@ export default function ProjectsPage() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -10 }}
-            className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
-          >
-            {/* Project Image/Icon */}
-            <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl">
-              {project.image}
-            </div>
-
-            {/* Content */}
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-cyan-400 border border-cyan-400/30"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3">
-                <a
-                  href={project.link}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 hover:bg-blue-500/20 transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span className="text-sm">View</span>
-                </a>
-                <a
-                  href={project.github}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                  <span className="text-sm">Code</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Hover Glow */}
-            <div className="absolute inset-0 bg-gradient-to-t from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300 pointer-events-none" />
-          </motion.div>
+          <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
           </div>
@@ -217,5 +181,123 @@ export default function ProjectsPage() {
         </motion.footer>
       </div>
     </div>
+  );
+}
+
+// Project Card Component with Carousel Support
+function ProjectCard({ project, index }: { project: any; index: number }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const hasMultipleImages = project.images && project.images.length > 0;
+  const displayImages = hasMultipleImages ? project.images : [project.image];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -10 }}
+      className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
+    >
+      {/* Project Image/Icon with Carousel */}
+      <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl overflow-hidden relative">
+        {hasMultipleImages ? (
+          <>
+            <img 
+              src={displayImages[currentImageIndex]} 
+              alt={`${project.title} - Image ${currentImageIndex + 1}`}
+              className="w-full h-full object-cover"
+            />
+            {/* Carousel Controls */}
+            {displayImages.length > 1 && (
+              <>
+                <button
+                  onClick={() => setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={() => setCurrentImageIndex((prev) => (prev + 1) % displayImages.length)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+                >
+                  ›
+                </button>
+                {/* Dots Indicator */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {displayImages.map((_: any, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`w-1.5 h-1.5 rounded-full transition-all ${
+                        idx === currentImageIndex 
+                          ? 'bg-white w-4' 
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        ) : typeof displayImages[0] === 'string' && displayImages[0].startsWith('/') ? (
+          <img 
+            src={displayImages[0]} 
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          displayImages[0]
+        )}
+      </div>
+
+            {/* Content */}
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag: string, tagIndex: number) => (
+                  <span
+                    key={tagIndex}
+                    className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-cyan-400 border border-cyan-400/30"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex gap-3">
+                {project.link !== "#" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 hover:bg-blue-500/20 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span className="text-sm">View</span>
+                  </a>
+                )}
+                {project.github !== "#" && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white border border-white/10 hover:bg-white/10 transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span className="text-sm">Code</span>
+                  </a>
+                )}
+              </div>
+            </div>
+
+      {/* Hover Glow */}
+      <div className="absolute inset-0 bg-gradient-to-t from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300 pointer-events-none" />
+    </motion.div>
   );
 }
