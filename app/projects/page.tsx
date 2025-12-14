@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Instagram } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -205,9 +205,12 @@ export default function ProjectsPage() {
 
   ];
 
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+  const filteredProjects = useMemo(() => 
+    selectedCategory === "All" 
+      ? projects 
+      : projects.filter(project => project.category === selectedCategory),
+    [selectedCategory]
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
@@ -265,19 +268,22 @@ export default function ProjectsPage() {
               className="mb-8 relative"
             >
               <div className="flex flex-nowrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                {categories.map((category, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
-                      selectedCategory === category
-                        ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-[0_0_20px_rgba(0,122,255,0.3)]"
-                        : "backdrop-blur-xl bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
+                {categories.map((category) => {
+                  const isActive = selectedCategory === category;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
+                        isActive
+                          ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-[0_0_20px_rgba(0,122,255,0.3)]"
+                          : "backdrop-blur-xl bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
               </div>
               {/* Gradient fade effect on mobile to indicate more buttons */}
               <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black via-black/80 to-transparent pointer-events-none md:hidden" />
