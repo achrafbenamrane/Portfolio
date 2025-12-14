@@ -319,8 +319,9 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover cursor-pointer"
                 onClick={() => setIsLightboxOpen(true)}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
+                fetchPriority="high"
               />
             {/* Carousel Controls */}
             {displayImages.length > 1 && (
@@ -359,8 +360,9 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             src={displayImages[0]} 
             alt={project.title}
             className="w-full h-full object-cover"
-            loading="eager"
+            loading="lazy"
             decoding="async"
+            fetchPriority="high"
           />
         ) : (
           displayImages[0]
@@ -452,7 +454,8 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
               className="max-w-full max-h-full object-contain"
               loading="eager"
-              decoding="async"
+              decoding="sync"
+              fetchPriority="high"
             />
             
             {/* Lightbox Navigation */}
