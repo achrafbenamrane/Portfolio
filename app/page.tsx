@@ -119,6 +119,7 @@ function IOSTile({
   delay = 0,
   className = "",
   showImage = false,
+  onContactClick,
 }: {
   title: string;
   subtitle?: string;
@@ -129,6 +130,7 @@ function IOSTile({
   delay?: number;
   className?: string;
   showImage?: boolean;
+  onContactClick?: () => void;
 }) {
   const colorMap: Record<string, { from: string; to: string; glow: string }> = {
     blue: { from: "from-blue-500/20", to: "to-blue-600/5", glow: "hover:shadow-[0_0_30px_rgba(0,122,255,0.4)]" },
@@ -193,7 +195,7 @@ function IOSTile({
 
                     {/* Contact Button */}
                     <div
-                      onClick={() => setCurrentPage('contact')}
+                      onClick={onContactClick}
                       className="inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-3 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full text-white text-[10px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-100 cursor-pointer"
                     >
                       <MessageSquare className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" strokeWidth={2.5} />
@@ -230,15 +232,20 @@ function IOSTile({
     );
   }
 
-  // For other cards, wrap in Link
-  return (
-    <Link href={href} className={`block h-full w-full ${className}`}>
-      {content}
-    </Link>
-  );
+  // If href is provided, wrap in Link
+  if (href) {
+    return (
+      <Link href={href} className={`block h-full w-full ${className}`}>
+        {content}
+      </Link>
+    );
+  }
+
+  // Default: just return the content
+  return <div className={`block h-full w-full ${className}`}>{content}</div>;
 }
 
-function PageContent({ page, onBack }: { page: string; onBack: () => void }) {
+function PageContent({ page, onBack, onContactClick }: { page: string; onBack: () => void; onContactClick?: () => void }) {
   return (
     <div className="h-screen w-screen overflow-hidden fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Subtle grid pattern */}
@@ -274,11 +281,11 @@ function PageContent({ page, onBack }: { page: string; onBack: () => void }) {
           <div className="max-w-6xl mx-auto">
             {page === 'projects' && <ProjectsContent />}
             {page === 'skills' && <SkillsContent />}
-            {page === 'services' && <ServicesContent />}
+            {page === 'services' && <ServicesContent onContactClick={onContactClick} />}
             {page === 'experience' && <ExperienceContent />}
             {page === 'certifications' && <CertificationsContent />}
             {page === 'contact' && <ContactContent />}
-            {page === 'profile' && <ProfileContent />}
+            {page === 'profile' && <ProfileContent onContactClick={onContactClick} />}
           </div>
         </main>
       </div>
@@ -662,7 +669,7 @@ function SkillsContent() {
     </>
   );
 }
-function ServicesContent() {
+function ServicesContent({ onContactClick }: { onContactClick?: () => void }) {
   const services = [
     {
       icon: Code,
@@ -787,7 +794,7 @@ function ServicesContent() {
           and beautiful design.
         </p>
         <button
-          onClick={() => setCurrentPage('contact')}
+          onClick={onContactClick}
           className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold hover:shadow-[0_0_30px_rgba(0,122,255,0.5)] transition-all"
         >
           Get in Touch
@@ -1353,7 +1360,7 @@ function ContactContent() {
     </>
   );
 }
-function ProfileContent() {
+function ProfileContent({ onContactClick }: { onContactClick?: () => void }) {
   const socialProfiles = [
     {
       platform: "GitHub",
@@ -1479,7 +1486,7 @@ function ProfileContent() {
           and collaboration opportunities.
         </p>
         <button
-          onClick={() => setCurrentPage('contact')}
+          onClick={onContactClick}
           className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold hover:shadow-[0_0_30px_rgba(0,122,255,0.5)] transition-all"
         >
           Send a Message
@@ -1697,7 +1704,7 @@ export default function Home() {
 
   if (currentPage !== 'home') {
     // Render the selected page content
-    return <PageContent page={currentPage} onBack={() => setCurrentPage('home')} />;
+    return <PageContent page={currentPage} onBack={() => setCurrentPage('home')} onContactClick={() => setCurrentPage('contact')} />;
   }
 
   return (
@@ -1749,6 +1756,7 @@ export default function Home() {
                 delay={0}
                 className="col-span-4 row-span-1 sm:col-span-2 sm:row-span-3 order-1 sm:order-none"
                 showImage={true}
+                onContactClick={() => setCurrentPage('contact')}
               />
 
               {/* Skills - Larger on mobile */}
