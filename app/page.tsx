@@ -33,69 +33,43 @@ import {
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
-// Decrypting Text Animation Component
-const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=[]{}|;:,.<>?";
-
-interface DecryptingTextProps {
+// Typewriter Text Animation Component
+interface TypewriterTextProps {
   targetText: string;
   speed?: number;
 }
 
-const DecryptingText: React.FC<DecryptingTextProps> = ({
+const TypewriterText: React.FC<TypewriterTextProps> = ({
   targetText,
-  speed = 8,
+  speed = 100,
 }) => {
   const [currentText, setCurrentText] = useState<string>("");
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   React.useEffect(() => {
-    let animationFrameId: number;
-    let iteration = 0;
-    let isMounted = true;
+    if (currentIndex < targetText.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText(prev => prev + targetText[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, speed);
 
-    const animationSpeed = Math.max(1, speed);
-
-    const scramble = () => {
-      if (!isMounted) return;
-
-      const newText = targetText
-        .split("")
-        .map((char, index) => {
-          if (iteration / animationSpeed > index) {
-            return targetText[index];
-          }
-          if (char === " ") return " ";
-          return CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
-        })
-        .join("");
-
-      setCurrentText(newText);
-
-      if (iteration < targetText.length * animationSpeed) {
-        iteration += 1;
-        animationFrameId = requestAnimationFrame(scramble);
-      } else {
-        setCurrentText(targetText);
-      }
-    };
-
-    scramble();
-
-    return () => {
-      isMounted = false;
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, [targetText, speed]);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, targetText, speed]);
 
   return (
     <motion.p
-      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center break-words z-10 text-white"
+      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center break-words z-10 text-white"
+      style={{
+        textShadow: '0 0 5px #3b82f6, 0 0 10px #3b82f6',
+        filter: 'drop-shadow(0 0 5px rgba(59, 130, 246, 0.3))'
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       {currentText}
+      <span className="animate-pulse text-blue-400">|</span>
     </motion.p>
   );
 };
@@ -1795,7 +1769,7 @@ export default function Home() {
           className="px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 flex-shrink-0"
         >
           <div className="flex items-center justify-center max-w-7xl mx-auto">
-            <DecryptingText targetText="welcome to my portfolio" speed={3} />
+            <TypewriterText targetText="welcome to my portfolio" speed={100} />
           </div>
         </motion.header>
 
@@ -1895,7 +1869,7 @@ export default function Home() {
           className="py-3 pb-6 sm:pb-3 text-center flex-shrink-0"
         >
           <p className="text-[10px] text-gray-500">
-            © 2025 iOS Portfolio Dashboard
+            © 2025 Portfolio Dashboard
           </p>
         </motion.footer>
       </div>
