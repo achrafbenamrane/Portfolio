@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -31,7 +32,73 @@ import {
   Twitter,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
-import { useState, useMemo } from "react";
+
+// Decrypting Text Animation Component
+const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=[]{}|;:,.<>?";
+
+interface DecryptingTextProps {
+  targetText: string;
+  speed?: number;
+}
+
+const DecryptingText: React.FC<DecryptingTextProps> = ({
+  targetText,
+  speed = 8,
+}) => {
+  const [currentText, setCurrentText] = useState<string>("");
+
+  React.useEffect(() => {
+    let animationFrameId: number;
+    let iteration = 0;
+    let isMounted = true;
+
+    const animationSpeed = Math.max(1, speed);
+
+    const scramble = () => {
+      if (!isMounted) return;
+
+      const newText = targetText
+        .split("")
+        .map((char, index) => {
+          if (iteration / animationSpeed > index) {
+            return targetText[index];
+          }
+          if (char === " ") return " ";
+          return CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
+        })
+        .join("");
+
+      setCurrentText(newText);
+
+      if (iteration < targetText.length * animationSpeed) {
+        iteration += 1;
+        animationFrameId = requestAnimationFrame(scramble);
+      } else {
+        setCurrentText(targetText);
+      }
+    };
+
+    scramble();
+
+    return () => {
+      isMounted = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [targetText, speed]);
+
+  return (
+    <motion.p
+      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center break-words z-10 text-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {currentText}
+    </motion.p>
+  );
+};
 
 // Contact Card Component (static, no navigation)
 function ContactCard({
@@ -1728,9 +1795,7 @@ export default function Home() {
           className="px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 flex-shrink-0"
         >
           <div className="flex items-center justify-center max-w-7xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white">
-              &lt;/ My Portfolio &gt;
-            </h1>
+            <DecryptingText targetText="welcome to my portfolio" speed={3} />
           </div>
         </motion.header>
 
