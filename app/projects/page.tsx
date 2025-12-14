@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Instagram } from "lucide-react";
 import { useState } from "react";
+import ImageLoader from "@/components/ImageLoader";
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -314,13 +315,11 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
         <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl overflow-hidden relative">
           {hasMultipleImages ? (
             <>
-              <img 
+              <ImageLoader 
                 src={displayImages[currentImageIndex]} 
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover cursor-pointer"
                 onClick={() => setIsLightboxOpen(true)}
-                loading="eager"
-                decoding="async"
               />
             {/* Carousel Controls */}
             {displayImages.length > 1 && (
@@ -355,12 +354,10 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             )}
           </>
         ) : typeof displayImages[0] === 'string' && displayImages[0].startsWith('/') ? (
-          <img 
+          <ImageLoader 
             src={displayImages[0]} 
             alt={project.title}
             className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
           />
         ) : (
           displayImages[0]

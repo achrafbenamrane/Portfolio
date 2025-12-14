@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Award, ExternalLink } from "lucide-react";
+import ImageLoader from "@/components/ImageLoader";
 
 export default function CertificationsPage() {
   const certifications = [
@@ -116,15 +117,13 @@ export default function CertificationsPage() {
                 >
                   {/* Certificate Image - Top */}
                   <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center overflow-hidden relative">
-                    <img 
+                    <ImageLoader 
                       src={cert.image} 
                       alt={cert.title}
                       className="w-full h-full object-cover"
-                      loading="eager"
-                      decoding="async"
                     />
                     {/* Badge Overlay */}
-                    <div className="absolute top-3 right-3 p-2 rounded-full bg-black/60 backdrop-blur-sm">
+                    <div className="absolute top-3 right-3 p-2 rounded-full bg-black/60 backdrop-blur-sm z-20">
                       <Award className="w-5 h-5 text-cyan-400" />
                     </div>
                   </div>
