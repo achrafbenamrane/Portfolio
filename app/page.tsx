@@ -431,12 +431,12 @@ function ProjectsContent() {
       title: "ONEFRAME Packaging Design",
       description: "Professional packaging design collection featuring custom car-themed artwork for ONEFRAME brand products",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668604/1_hdwbhl.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668605/6_hzpruh.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668611/3_mvdmkz.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668606/5_zsjru0.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668604/2_wdhnke.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668609/4_hrie4t.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668604/1_hdwbhl.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668605/6_hzpruh.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668611/3_mvdmkz.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668606/5_zsjru0.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668604/2_wdhnke.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668609/4_hrie4t.webp"
       ],
       tags: ["Packaging Design", "Branding", "Adobe Illustrator", "Product Design"],
       category: "Graphic Design",
@@ -448,11 +448,11 @@ function ProjectsContent() {
       title: "Rital Fast Food",
       description: "Complete restaurant branding and menu design for Rital Fast Food in Annaba Sidi Amar, featuring modern visual identity and appetizing food presentation",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765669018/2_boun0k.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668973/1_dinedx.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668975/3_qbfn6x.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668977/4_lsco7q.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668979/5_qel7ap.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765669018/2_boun0k.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668973/1_dinedx.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668975/3_qbfn6x.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668977/4_lsco7q.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668979/5_qel7ap.webp"
       ],
       tags: ["Branding", "Menu Design", "Restaurant", "Adobe Illustrator"],
       category: "Graphic Design",
@@ -463,8 +463,8 @@ function ProjectsContent() {
       title: "Butcher Pricing Menu",
       description: "Professional pricing menu design for a local butcher shop in Ain Bidha, Oum Bouaghi, Algeria. Clean layout showcasing meat prices with clear typography and traditional butchery aesthetic",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668887/1_jg0sv1.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765668888/2_gwmo56.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668887/1_jg0sv1.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765668888/2_gwmo56.webp"
       ],
       tags: ["Menu Design", "Pricing", "Typography", "Adobe Illustrator"],
       category: "Graphic Design",
@@ -475,14 +475,14 @@ function ProjectsContent() {
       title: "Rital Fast Food Big Panels",
       description: "Large-scale outdoor advertising panels for Rital Fast Food in Sidi Amar, Annaba. Eye-catching billboard designs featuring bold typography, vibrant food photography, and strategic messaging for maximum visual impact",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647418/1_gkle1x.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661742/10_n9p2ew.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647425/3_yzckiq.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647413/11_ledogt.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661751/5_igcbux.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661744/9_bxa46e.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765647422/7_fcnnqh.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765661787/13_wlawwc.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765647418/1_gkle1x.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765661742/10_n9p2ew.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765647425/3_yzckiq.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765647413/11_ledogt.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765661751/5_igcbux.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765661744/9_bxa46e.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765647422/7_fcnnqh.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765661787/13_wlawwc.webp"
       ],
       tags: ["Billboard Design", "Advertising", "Branding", "Adobe Illustrator"],
       category: "Graphic Design",
@@ -493,12 +493,12 @@ function ProjectsContent() {
       title: "Berchicha Store Logo",
       description: "Brand identity and logo design for Berchicha, an Algerian retailer specializing in authentic TN and Lacoste products. Modern logo design reflecting quality and authenticity with clean, professional aesthetics",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646528/1_wlfegs.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646535/2_d70ngg.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646536/3_l68alr.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765662234/4_rv0a6c.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646529/5_rxtguc.webp",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765646528/6_mcgtes.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765646528/1_wlfegs.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765646535/2_d70ngg.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765646536/3_l68alr.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765662234/4_rv0a6c.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765646529/5_rxtguc.webp",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765646528/6_mcgtes.webp"
       ],
       tags: ["Logo Design", "Brand Identity", "Adobe Illustrator", "Retail"],
       category: "Graphic Design",
@@ -510,8 +510,8 @@ function ProjectsContent() {
       title: "OSCA Logo",
       description: "Official logo design for the Open Source Community Annaba (OSCA), a scientific club dedicated to promoting open source technology and collaboration among developers and tech enthusiasts in Annaba, Algeria",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765674697/Screenshot_20251214-020612_g3xfwx.jpg",
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765674745/IMG_20251123_095302_401_cdnnx9.jpg"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765674697/Screenshot_20251214-020612_g3xfwx.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765674745/IMG_20251123_095302_401_cdnnx9.jpg"
       ],
       tags: ["Logo Design", "Brand Identity", "Community", "Open Source"],
       category: "Graphic Design",
@@ -523,7 +523,7 @@ function ProjectsContent() {
       title: "Maison du Choco Visit Card",
       description: "Professional business card design for Maison du Choco, a premium chocolate and pastry boutique. Elegant design featuring sophisticated typography and brand colors that reflect the artisanal quality of their handcrafted treats",
       images: [
-        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1765669316/1_a12pgv.webp"
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765669316/1_a12pgv.webp"
       ],
       tags: ["Business Card", "Brand Identity", "Print Design", "Adobe Illustrator"],
       category: "Graphic Design",
