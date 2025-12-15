@@ -31,6 +31,7 @@ import {
   Linkedin,
   Twitter,
   Facebook,
+  Maximize,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -1604,18 +1605,24 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                 loading="eager"
                 decoding="async"
               />
+              {/* Full Screen Icon Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 backdrop-blur-sm rounded-full p-3 pointer-events-none">
+                  <Maximize className="w-6 h-6 text-white pointer-events-none" />
+                </div>
+              </div>
             {/* Carousel Controls */}
             {displayImages.length > 1 && (
               <>
                 <button
                   onClick={() => setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length)}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity hover:bg-black/80"
                 >
                   ‹
                 </button>
                 <button
                   onClick={() => setCurrentImageIndex((prev) => (prev + 1) % displayImages.length)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity hover:bg-black/80"
                 >
                   ›
                 </button>
@@ -1637,13 +1644,22 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             )}
           </>
         ) : typeof displayImages[0] === 'string' && displayImages[0].startsWith('/') ? (
-          <img 
-            src={displayImages[0]} 
-            alt={project.title}
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
+          <>
+            <img 
+              src={displayImages[0]} 
+              alt={project.title}
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={() => setIsLightboxOpen(true)}
+              loading="eager"
+              decoding="async"
+            />
+            {/* Full Screen Icon Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 backdrop-blur-sm rounded-full p-3 pointer-events-none">
+                <Maximize className="w-6 h-6 text-white pointer-events-none" />
+              </div>
+            </div>
+          </>
         ) : (
           displayImages[0]
         )}
