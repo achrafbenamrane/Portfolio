@@ -30,6 +30,7 @@ import {
   Phone,
   Linkedin,
   Twitter,
+  Facebook,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -528,6 +529,20 @@ function ProjectsContent() {
       tags: ["Business Card", "Brand Identity", "Print Design", "Adobe Illustrator"],
       category: "Graphic Design",
       link: "https://maison-de-choco.vercel.app/",
+      github: "#",
+    },
+    {
+      title: "Private School Banners",
+      description: "Banner designs for اكاديمية طلائع المستقبل للتعليم والتكوين (Future Pioneers Academy) in Ain Beida, Oum El Bouaghi. Modern educational themes with vibrant colors and professional typography for school branding.",
+      images: [
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765755966/IMG_20251211_194731_388_uxgrke.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765756023/IMG_20251211_194739_264_bxs2n5.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/f_auto,q_auto/v1765756022/IMG_20251211_194735_861_mmipqs.jpg"
+      ],
+      tags: ["Banner Design", "Educational Branding", "Adobe Illustrator", "Print Design"],
+      category: "Graphic Design",
+      link: "https://www.facebook.com/share/1A2rR5FSFm/",
+      facebook: true,
       github: "#",
     },
   ];
@@ -1642,6 +1657,11 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                       <>
                         <Instagram className="w-4 h-4" />
                         <span className="text-sm">Instagram</span>
+                      </>
+                    ) : project.facebook ? (
+                      <>
+                        <Facebook className="w-4 h-4" />
+                        <span className="text-sm">Facebook</span>
                       </>
                     ) : project.tiktok ? (
                       <>
