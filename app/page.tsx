@@ -307,7 +307,7 @@ function PageContent({ page, onBack, onContactClick }: { page: string; onBack: (
           transition={{ duration: 0.3 }}
           className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 flex-shrink-0"
         >
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto flex items-center justify-between">
             <button
               onClick={onBack}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-sm sm:text-base text-white"
@@ -315,6 +315,16 @@ function PageContent({ page, onBack, onContactClick }: { page: string; onBack: (
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               Back to Dashboard
             </button>
+            
+            {page !== 'contact' && (
+              <button
+                onClick={onContactClick}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white"
+                title="Contact Me"
+              >
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+            )}
           </div>
         </motion.header>
 
@@ -1583,7 +1593,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
         className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
       >
         {/* Project Image/Icon with Carousel */}
-        <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl overflow-hidden relative">
+        <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl overflow-hidden relative mb-4">
           {hasMultipleImages ? (
             <>
               <img 
