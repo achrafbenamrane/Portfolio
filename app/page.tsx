@@ -330,7 +330,7 @@ function PageContent({ page, onBack, onContactClick }: { page: string; onBack: (
         </motion.header>
 
         {/* Page Content */}
-        <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 sm:py-8 pb-12 overflow-auto">
+        <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 sm:py-8 pb-32 overflow-auto">
           <div className="max-w-6xl mx-auto">
             {page === 'projects' && <ProjectsContent />}
             {page === 'skills' && <SkillsContent />}
