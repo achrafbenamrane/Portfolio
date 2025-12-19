@@ -11,10 +11,6 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        secondary: "var(--secondary-text)",
-        accent: "var(--accent-primary)",
-        'accent-secondary': "var(--accent-secondary)",
-        card: "var(--card-background)",
         neon: {
           blue: "#007AFF",
           cyan: "#00C7BE",

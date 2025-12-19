@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import PageTransition from "@/components/PageTransition";
-import { ThemeProvider } from "@/lib/theme-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>
-          <PageTransition>{children}</PageTransition>
-        </ThemeProvider>
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
