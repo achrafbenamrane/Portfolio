@@ -34,6 +34,7 @@ import {
   Maximize,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
+import { useToast } from "@/components/ToastProvider";
 
 // Typewriter Text Animation Component
 interface TypewriterTextProps {
@@ -1230,8 +1231,19 @@ function ContactContent() {
     message: "",
   });
 
+  const { addLoadingWithSuccess, addNotification } = useToast();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Start loading notification
+    addLoadingWithSuccess(
+      'Sending Message',
+      'Please wait while we send your message...',
+      'Message Sent!',
+      'Thank you for your message! I\'ll get back to you soon.',
+      2000 // 2 second loading duration
+    );
 
     try {
       const response = await fetch('/api/contact', {
@@ -1245,7 +1257,7 @@ function ContactContent() {
       const result = await response.json();
 
       if (response.ok) {
-        alert('Thank you for your message! I\'ll get back to you soon.');
+        // Success notification is already shown by addLoadingWithSuccess
         // Reset form
         setFormData({
           name: '',
@@ -1254,11 +1266,13 @@ function ContactContent() {
           message: '',
         });
       } else {
-        alert(`Error: ${result.error || 'Failed to send message'}`);
+        // Show error notification
+        addNotification('error', 'Failed to Send', result.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('Failed to send message. Please try again later.');
+      // Show error notification
+      addNotification('error', 'Connection Error', 'Failed to send message. Please check your connection and try again.');
     }
   };
 
