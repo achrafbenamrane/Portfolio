@@ -229,7 +229,7 @@ function IOSTile({
                   <div className="flex gap-2 mt-2 sm:mt-2 md:mt-3 lg:mt-4">
                     {/* Download CV Button */}
                     <a
-                      href="/cv.pdf"
+                      href="/benamrane-cv.pdf"
                       download
                       className="inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-3 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-full text-white text-[10px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,122,255,0.5)] hover:scale-105 active:scale-100"
                     >
