@@ -355,6 +355,15 @@ function ProjectsContent() {
 
   const projects = [
     {
+      title: "RSI Calculator",
+      description: "Calculate your semester average and track your academic progress with precision and style. A comprehensive web application for semester grade calculation with an intuitive interface.",
+      image: "/projects/calculator/calculator.png",
+      tags: ["Web App", "Grade Calculator", "Education", "React"],
+      category: "Web Development",
+      link: "https://rsi-calculator-m2.vercel.app/",
+      github: "#",
+    },
+    {
       title: "ONEFRAME",
       description: "E-commerce website for my brand",
       image: "/projects/ONEFRAME.webp",
@@ -571,13 +580,33 @@ function ProjectsContent() {
       instagram: true,
       github: "#",
     },
+    {
+      title: "Neemafood",
+      description: "NeemaFood is a mobile application that connects local food vendors with customers looking for great food deals. Features include real-time vendor discovery, seamless ordering, secure payments, and personalized recommendations to help users find the best local cuisine at competitive prices.",
+      images: [
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250138/logo_fnhfo9.png",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250156/Screenshot_20260124-111331_yaqa13.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250154/Screenshot_20260124-111300_sygukd.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250154/Screenshot_20260124-111245_et8rrj.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250154/Screenshot_20260124-111309_b6r3vp.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250152/Screenshot_20260124-111240_xsv4h8.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250146/Screenshot_20260124-111128_vmqg1v.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250139/Screenshot_20260124-111039_berfhv.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250145/Screenshot_20260124-111103_vvxydb.jpg",
+        "https://res.cloudinary.com/dwvgbojw0/image/upload/v1769250140/Screenshot_20260124-111022_fcmkrq.jpg"
+      ],
+      tags: ["Mobile App", "Food Delivery", "React Native", "Firebase", "Real-time"],
+      category: "Mobile Development",
+      link: "https://neemafood.vercel.app/",
+      github: "#",
+    },
   ];
 
   const filteredProjects = useMemo(() => 
     selectedCategory === "All" 
       ? projects 
       : projects.filter(project => project.category === selectedCategory),
-    [selectedCategory]
+    [selectedCategory, projects]
   );
 
   return (
@@ -734,7 +763,7 @@ function SkillsContent() {
           { label: "Technologies", value: "25+" },
           { label: "Years Experience", value: "3+" },
           { label: "Projects", value: "50+" },
-          { label: "Certifications", value: "6" },
+          { label: "Certifications", value: "8" },
         ].map((stat, index) => (
           <motion.div
             key={index}
@@ -1122,6 +1151,22 @@ function CertificationsContent() {
       date: "2024",
       image: "/eventsOrganizer.webp",
       skills: "Event Management, International Relations, Public Speaking, Coordination, Marketing & Promotion",
+      link: "#",
+    },
+    {
+      title: "Cisco Networking Fundamentals",
+      issuer: "Cisco Systems",
+      date: "2026",
+      image: "/Cisco.png",
+      skills: "Network Fundamentals, TCP/IP Protocols, Network Security Basics, Routing & Switching, Network Troubleshooting, Cisco IOS Configuration",
+      link: "#",
+    },
+    {
+      title: "Red Team Cybersecurity Certification",
+      issuer: "Certified Cybersecurity Institute",
+      date: "2026",
+      image: "/RedTeam.png",
+      skills: "Penetration Testing, Ethical Hacking, Vulnerability Assessment, Social Engineering, Network Intrusion, Security Auditing, Incident Response",
       link: "#",
     },
   ];
